@@ -16,16 +16,16 @@
       </div>
       <div v-if="result !== null" class="result-row">
         <span>{{ equation }} = {{ result }}</span>
-        <img v-if="result >= 0 && result <= 100" src="./assets/One.jpg" alt="result-image">
+        <img v-if="result >= 0 && result <= 100" src="@/assets/One.jpg" alt="result-image">
       </div>
       <div v-if="result !== null" class="visual-aid">
         <div v-if="result > 100">
           <span>That's a really big number!</span>
-          <img src="./assets/bluey.jpeg" alt="result-image">
+          <img src="@/assets/bluey.jpeg" alt="big-number-image">
         </div>
         <div v-else-if="result < 0">
           <span>Let's practice easier math right now!</span>
-          <img src="./assets/One.jpg" alt="result-image">
+          <img :src="negativeResultImage" alt="negative-result-image">
         </div>
         <div v-else-if="result > 0" class="blocks">
           <div v-for="n in result" :key="n" class="block"></div>
@@ -43,6 +43,7 @@ export default {
       result: null,
       numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
       operators: ['+', '-'],
+      negativeResultImage: require('@/assets/four.jpg') // Correctly require image path
     };
   },
   methods: {
@@ -65,7 +66,12 @@ export default {
       if (this.equation.includes('+') || this.equation.includes('-')) {
         try {
           const calculatedResult = eval(this.equation);
-          this.result = calculatedResult < 0 ? "Let's practice easier math right now!" : calculatedResult;
+          if (calculatedResult < 0) {
+            this.result = "Let's practice easier math right now!";
+            this.negativeResultImage = require('@/assets/four.jpg'); // Correctly require image path
+          } else {
+            this.result = calculatedResult;
+          }
         } catch (error) {
           alert("There was an error calculating the result.");
         }
@@ -91,7 +97,7 @@ html, body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-image: url('./assets/background.jpg');
+  background-image: url('@/assets/background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -174,4 +180,3 @@ html, body {
   background-color: #4caf50;
 }
 </style>
-
