@@ -1,8 +1,10 @@
 <template>
   <div id="app">
+    <div class="head">
     <h1>Number Blocks Game</h1>
     <h2>Hi Satori!</h2>
     <h3>Daddy made this for you! ❤️</h3>
+  </div>
     <div class="calculator">
       <div class="display">{{ equation }}</div>
       <div class="buttons">
@@ -84,35 +86,54 @@ export default {
 <style>
 #app {
   text-align: center;
+  background-image: url('./assets/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.head {
+  
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+  
 }
 .calculator {
   display: inline-block;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+  max-width: 80%;
 }
 .display {
   margin-bottom: 20px;
-  font-size: 24px;
+  font-size: 28px;
   min-height: 40px;
 }
 .buttons {
   display: grid;
-  grid-template-columns: repeat(3, 60px);
-  gap: 10px;
+  grid-template-columns: repeat(3, 80px);
+  gap: 20px;
 }
 .buttons button {
-  font-size: 18px;
+  font-size: 38px;
   padding: 10px;
+  border-radius: 5px;
 }
 .result-row {
   margin-top: 20px;
   display: flex;
   align-items: center;
+  font-size: 58px;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 .result-row img {
-  width: 40px;
-  height: 40px;
+  width: 80px;
+  height: 80px;
   margin-left: 10px;
 }
 .visual-aid {
@@ -120,12 +141,12 @@ export default {
 }
 .blocks {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 20px);
+  grid-template-columns: repeat(auto-fill, 40px);
   gap: 5px;
 }
 .block {
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   background-color: #4caf50;
 }
 </style>
