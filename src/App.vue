@@ -1,10 +1,11 @@
 <template>
   <div id="app">
     <div class="head">
-    <h1>Number Blocks Game</h1>
+    <h1><u><strong>Number Blocks Game</strong></u></h1>
     <h2>Hi Satori!</h2>
     <h3>Daddy made this for you! ❤️</h3>
   </div>
+  <br>
     <div class="calculator">
       <div class="display">{{ equation }}</div>
       <div class="buttons">
@@ -108,6 +109,7 @@ export default {
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
   max-width: 80%;
+  
 }
 .display {
   margin-bottom: 20px;
